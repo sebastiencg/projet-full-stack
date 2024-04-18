@@ -50,15 +50,15 @@ const register = async () => {
 
   <form class="max-w-sm mx-auto" @submit.prevent="handleSubmit">
     <div class="mb-5 input-div">
-      <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+      <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-start">Email</label>
       <input type="email" id="email" v-model="email" class="input-text bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com"  required/>
     </div>
     <div class="mb-5">
-      <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+      <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-start">Password</label>
       <input type="password" id="password" v-model="password" class="input-text bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="password" required />
     </div>
     <div class="mb-5">
-      <label for="dropdown" class="block text-sm font-medium text-gray-700">Role :</label>
+      <label for="dropdown" class="block text-sm font-medium text-gray-700 text-start" >Role </label>
       <select id="dropdown" v-model="selectedOption" class="input-text mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required>
         <option value="" disabled>Role</option>
         <option value="Coordinate">Coordinate</option>

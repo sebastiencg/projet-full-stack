@@ -9,6 +9,7 @@ import LoginForm from "@/components/LoginForm.vue";
 import RegisterForm from "@/components/RegisterForm.vue";
 import LogoutUser from "@/components/LogoutUser.vue";
 import PaymentComponent from "@/components/PaymentComponent.vue";
+import SuccessComponent from "@/components/SuccessComponent.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -60,7 +61,12 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/payment",
     component: PaymentComponent
-  }
+  },
+  {
+    path: '/success',
+    name: 'success',
+    component: SuccessComponent
+  },
 ]
 
 const router = createRouter({

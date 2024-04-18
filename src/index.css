@@ -41,6 +41,7 @@ body {
     min-height: 100vh;
     color: var(--black);
     font-family: "Work Sans", sans-serif;
+    background-color: #D1E3DD;
 }
 
 .container {
