@@ -3,33 +3,31 @@
 import { ref } from 'vue';
 
 const name = "Pierre Lacroix";
-const amount = ref('');
+const amount = ref(5);
 const description = ref('');
 const showOtherAmountInput = ref(false);
+const decoration = ref(5);
 
 const handleSubmit = () => {
   const amountValue = amount.value;
   const descriptionValue = description.value;
 
-  // Effectuer une action avec les données du formulaire (ex : envoyer à un serveur)
   console.log('Montant saisi :', amountValue);
   console.log('Description saisie :', descriptionValue);
-
-  // Réinitialiser les champs du formulaire après la soumission (facultatif)
   amount.value = '';
   description.value = '';
 };
 
-// Fonction pour définir le montant sélectionné
 const setAmount = (selectedAmount) => {
   amount.value = selectedAmount.toString();
-  showOtherAmountInput.value = false; // Cacher le champ "Autre montant"
+  showOtherAmountInput.value = false;
+  decoration.value= amount.value;
 };
 
-// Fonction pour activer/désactiver le champ "Autre montant"
 const toggleOtherAmountInput = () => {
-  showOtherAmountInput.value = true; // Afficher le champ "Autre montant"
+  showOtherAmountInput.value = true;
   amount.value = '';
+  decoration.value= 0
 };
 </script>
 
@@ -44,18 +42,36 @@ const toggleOtherAmountInput = () => {
   <br>
   <div class="flex justify-center">
     <div class="w-1/4 p-4 text-start">
-      <!-- Boutons pour les montants fixes -->
-      <button class="decoration-button-donation" @click="setAmount(5)">5 $</button>
+      <template v-if="decoration == 5">
+        <button class="decoration-button-donation-variant" @click="setAmount(5)">5 $</button>
+      </template>
+      <template v-else>
+        <button class="decoration-button-donation" @click="setAmount(5)">5 $</button>
+      </template>
     </div>
     <div class="w-1/4 p-4 text-start">
-      <button class="decoration-button-donation" @click="setAmount(10)">10 $</button>
+      <template v-if="decoration == 10">
+        <button class="decoration-button-donation-variant" @click="setAmount(10)">10 $</button>
+      </template>
+      <template v-else>
+        <button class="decoration-button-donation" @click="setAmount(10)">10 $</button>
+      </template>
     </div>
     <div class="w-1/4 p-4 text-start">
-      <button class="decoration-button-donation" @click="setAmount(50)">50 $</button>
+      <template v-if="decoration == 50">
+        <button class="decoration-button-donation-variant" @click="setAmount(50)">50 $</button>
+      </template>
+      <template v-else>
+        <button class="decoration-button-donation" @click="setAmount(50)">10 $</button>
+      </template>
     </div>
     <div class="w-1/4 p-4 text-start">
-      <!-- Bouton "other" pour un montant personnalisé -->
-      <button class="decoration-button-donation" @click="toggleOtherAmountInput">other</button>
+      <template v-if="decoration == 0">
+        <button class="decoration-button-donation-variant" @click="toggleOtherAmountInput">other</button>
+      </template>
+      <template v-else>
+        <button class="decoration-button-donation" @click="toggleOtherAmountInput">other</button>
+      </template>
     </div>
   </div>
 
@@ -100,9 +116,11 @@ const toggleOtherAmountInput = () => {
   }
 .decoration-button-donation-variant{
   border: solid 1px #6E7DAB;
+  background: #6E7DAB;
   border-radius: 10px;
   width: 70px;
   height: 40px;
+  color: white;
 }
 .input-text-donation{
   color: #6E7DAB;
