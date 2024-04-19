@@ -10,7 +10,8 @@ import RegisterForm from "@/components/RegisterForm.vue";
 import LogoutUser from "@/components/LogoutUser.vue";
 import PaymentComponent from "@/components/PaymentComponent.vue";
 import SuccessComponent from "@/components/SuccessComponent.vue";
-import DonationCoponent from "@/components/DonationCoponent.vue";
+import DonationComponent from "@/components/DonationComponent.vue";
+import ScanQrCComponent from "@/components/ScanQrCComponent.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -71,7 +72,12 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/donation',
     name: 'donation',
-    component: DonationCoponent
+    component: DonationComponent
+  },
+  {
+    path: '/scan-QrCode',
+    name: 'scanQrCode',
+    component: ScanQrCComponent
   },
 ]
 
